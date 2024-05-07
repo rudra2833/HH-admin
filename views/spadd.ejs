@@ -1,0 +1,377 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="/admin/spadd/submit" method="post" >
+
+        <input type="text" placeholder="Enter providername" name="providername">
+        
+        <input type="text" placeholder="Enter Service" name="category">
+
+        Use textarea to accept multiple pincodes
+        <textarea placeholder="Enter Pincodes (comma-separated)" name="pincodes"></textarea>
+
+        <input type="text" placeholder="Enter City" name="city">
+        
+        <input type="number" placeholder="Enter Charges for booking" name="charges">
+        
+        <select name="availability">
+            <option value="none" selected disabled hidden>Is available</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+
+        <button type="submit" class="items">⌕</button>
+
+    </form>
+
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <style>
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Inter", sans-serif;
+        --font-sans: "Inter";
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        --font-sans: "Inter";
+      }
+    </style>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 py-12 bg-gray-100">
+      <div class="space-y-6">
+      
+          <div>
+            <h1 class="text-3xl font-bold">Add a New Service Provider</h1>
+            <p class="text-gray-500 dark:text-gray-400">
+              Fill out the form below to add a new service provider.
+            </p>
+          </div>
+          
+        </div>
+
+        <form class="space-y-6 py-5" method="post" action="/admin/spadd/submit">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            <!-- profile picture -->
+            <!-- <div class="space-y-2">
+              <label for="file" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                Upload profile photo
+              </label>
+              <input type="file" name="file" class="flex bg-gray-200 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" placeholder="choose file">
+              <img id="imagePreview" class="mt-2 w-full hidden" src="#" alt="Preview">
+            </div> -->
+
+            <div class="space-y-2">
+              <label for="file" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                Upload profile photo
+              </label>
+              <input type="file" name="file" id="file" class="flex bg-gray-200 h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" placeholder="choose file">
+              <img id="imagePreview" class="mt-2 w-full hidden" src="#" alt="Preview">
+            </div>
+            
+
+            <!-- blankl -->
+            <div class="space-y-2"></div>
+
+
+            <!-- Provider name -->
+            <div class="space-y-2">
+              <label
+                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="providername"
+              >
+              Serivice Provider Full-Name
+              </label>
+              <input 
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" 
+              type="text" 
+              placeholder="Enter providername" 
+              name="providername">
+           </div>
+
+
+            <!-- blankl -->
+            <div class="space-y-2"></div>
+
+            <!-- email -->
+            <div class="space-y-2">
+              <label
+                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="email"
+              >
+              Email
+              </label>
+              <input 
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" 
+              type="email" 
+              placeholder="Enter email" 
+              name="email">
+            </div>
+
+
+            <!-- phone number -->
+            <div class="space-y-2">
+              <label
+                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="phone"
+              >
+                Phone Number
+              </label>
+              <input 
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" 
+              type="text" 
+              placeholder="Enter phone number" 
+              name="phoneno">
+            </div>
+
+
+            <!-- adhar number -->
+            <div class="space-y-2">
+              <label
+                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="aadhaar"
+              >
+                Aadhaar Number
+              </label>
+              <input 
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" 
+              type="text" 
+              placeholder="Enter Aadhaar Number" 
+              name="adharno">
+            </div>
+
+
+            <!-- birthday -->
+            <div class="space-y-2">
+              <label
+                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="birthday"
+              >
+                Birthday
+              </label>
+              <input 
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" 
+              type="date" 
+              name="birthday">
+            </div>
+
+
+            <!-- password -->
+            <div class="space-y-2">
+              <label
+                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="password"
+              >
+                Password
+              </label>
+              <input 
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" 
+              type="password"
+              placeholder="Enter password" 
+              name="password">
+            </div>
+
+            <!-- charges -->
+            <div class="space-y-2">
+              <label
+                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="charges"
+              >
+                Charges
+              </label>
+              <input 
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" 
+              type="number"
+              placeholder="Enter charges" 
+              name="charges">
+            </div>
+  
+          </div>
+
+          <!-- availability -->
+          <div class="space-y-2">
+            <label
+              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              for="availability"
+            >
+              Availabile :
+            </label>
+           Yes  <input type="radio" name="availability" value="true">
+           No  <input type="radio" name="availability" value="false">
+          </div>
+
+          <!-- category -->
+          <!-- EDIT HERE FOR CHANGE IN CATEGORY -->
+          <div class="space-y-2">
+            <label
+              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              for="category"
+            >
+              Category : 
+            </label>
+           
+            <select
+            id="category"
+            name="category"
+            class="block w-1/2 border border-gray-300 rounded-md py-2 px-3 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+                >
+              <option value="Select category">Select category</option>
+              <option value="plumber">Plumber</option>
+              <option value="lectrician">Electrician</option>
+              <option value="carpenter">Carpenter</option>
+              <option value="painter">Painter</option>
+            </select>
+          </div>
+
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            <!-- city -->
+            <div class="space-y-2">
+              <label
+                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="city"
+              >
+                City
+              </label>
+
+              <select
+                id="city"
+                name="city"
+                class="block w-full border border-gray-300 rounded-md py-2 px-3 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+              <option value="Select City">Select City</option>
+              <option value="ahmedabad">Ahmedabad</option>
+              <option value="surat">Surat</option>
+              <option value="gandhinagar">Gandhinagar</option>
+              <option value="rajkot">Rajkot</option>
+            </select>
+
+            </div>
+
+            <!-- blankl -->
+            <div class="space-y-2"></div>
+
+            <!-- pincodes -->
+            <div class="space-y-2">
+              <label
+                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="pincode"
+              >
+                Pincode(s)
+              </label>
+              <textarea 
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              placeholder="Enter Pincodes (comma-separated)" name="pincodes"></textarea>
+            </div>
+
+          </div>
+
+          <!-- message before submit button -->
+          <p class="text-gray-500 dark:text-gray-400">
+            Please check before adding the profile in the database.
+          </p>
+
+          <div class="flex justify-end">
+
+            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gray-200 border border-gray-300 text-gray-700 hover:bg-gray-300 hover:border-gray-400 h-10 px-4 py-2 w-full sm:w-auto" 
+            type="submit">
+    
+            Add Service Provider
+          </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Function to handle file input change event
+      function previewImage() {
+        const fileInput = document.getElementById('file');
+        const imagePreview = document.getElementById('imagePreview');
+  
+        fileInput.addEventListener('change', function() {
+          const file = this.files[0];
+  
+          if (file) {
+            const reader = new FileReader();
+  
+            reader.addEventListener('load', function() {
+              imagePreview.src = this.result;
+              imagePreview.classList.remove('hidden');
+            });
+  
+            reader.readAsDataURL(file);
+          } else {
+            imagePreview.src = '#';
+            imagePreview.classList.add('hidden');
+          }
+        });
+      }
+  
+      // Call the function
+      previewImage();
+    </script>
+
+
+  </body>
+</html>

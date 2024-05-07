@@ -18,54 +18,14 @@ import { app } from "./app.js";
 
 
 
+// +++++ADMIN-SERVICE-PROVIDER-ADD+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+import { spadd } from "./controllers/spadd.controller.js"
 
-// for GETing the HOME page
-app.get("/",(req,res)=>{
-    res.render("navbar/home.ejs");
+app.get("/admin/spadd",(req,res)=>{
+    res.render("spadd.ejs");
 })
 
-app.get("/contactus",(req,res)=>{
-    res.render("navbar/contactus.ejs");
-})
-
-app.get("/aboutus",(req,res)=>{
-    res.render("navbar/aboutus.ejs");
-})
-
-app.get("/Joinus",(req,res)=>{
-    res.render("forms_page/spform.ejs");
-})
-
-app.get("/feedback",(req,res)=>{
-    res.render("navbar/feedback.ejs");
-})
-
-app.get("/login",(req,res)=>{
-    res.render("forms_page/log-reg.ejs");
-})
-
-
-
-
-// for search with ejs
-app.get("/search",(req,res)=>{
-    res.render("searchpage.ejs");
-})
-
-// app.post("/search", (req, res) => {
-//     const city = req.body.choice;
-//     const service = req.body.service;
-
-//     //use of backend here BELOW
-
-//     res.render("searchpage.ejs",{ 
-//         db: song,
-//     });
-// });
-
-
-
-
+app.post("/admin/spadd/submit",spadd)
 
 
 
