@@ -1,0 +1,325 @@
+body {
+    /* background-color: #f0f0f0; */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.ad_main {
+    /* width: 100%; */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 15rem;
+    margin-top: 0;
+    flex-direction: column;
+    gap: 10px;
+
+    /* box padding */
+    padding: 5rem 20px;
+    background-color: rgb(243 244 246);
+}
+
+.ad_backpointer {
+    position: relative;
+    top: -2rem;
+    right: 50%;
+}
+
+.ad_backpointer a {
+    text-decoration: none;
+    color: black;
+    /* font-size: 1.5rem; */
+
+}
+
+.ad_block1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+
+.ad_block1 button {
+    height: 2.5rem;
+    width: 10.5rem;
+    background-color: #3d5a80;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.ad_searchbar {
+    display: flex;
+    justify-content: center;
+    margin: 15px 10px;
+    margin-right: auto;
+}
+
+.ad_searchbar input {
+    height: 2.5rem;
+    width: 25rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0 .5rem;
+}
+
+.ad_searchbar button {
+    border-radius: 50%;
+    padding: 0px 12px;
+    margin-left: 1rem;
+    border: 1px solid black;
+}
+
+.ad_searchbar i {
+    font-size: medium;
+}
+
+.dataviewform{
+    width: 100%;
+}
+
+.ad_body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 2rem;
+    padding: 1rem 0;
+
+    /* try */
+    background-color: rgba(211, 211, 211, 0.832);
+
+    background-color: rgb(229, 231, 235);
+    /* display: none; */
+}
+
+.ad_body_1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+
+}
+
+.body_1_left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem 1rem;
+    gap: 20px;
+}
+
+.body_1_left img {
+    height: 220px;
+    width: 200px;
+}
+
+
+.file-input {
+    /* display: flex; */
+    /* background-color: #edf2f7; */
+    /* height: 2.5rem; */
+    /* width: 100%; */
+    border-radius: 0.375rem;
+    border: 1px solid black;
+    padding: 0.5rem 0.75rem;
+    /* font-size: 0.875rem; */
+    /* color: #a0aec0; */
+    outline: none;
+    /* box-shadow: 0 0 0 2px #cbd5e0; */
+    cursor: not-allowed;
+    /* opacity: 0.9; */
+}
+
+
+
+
+.body_1_right {
+    display: flex;
+    justify-content: center;
+    /* align-items: left; */
+    flex-direction: column;
+    padding: 1rem 1rem;
+
+    gap: 20px;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.items h3,
+.items h4,
+.items p {
+    margin: 0;
+    padding: 0;
+}
+
+.items input {
+    font-size: medium;
+    padding: 5px 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.ad_body_2 {
+    width: 100%;
+    height: 100%;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 3rem;
+    box-sizing: border-box;
+}
+
+.pincodes_list {
+    list-style-type: none;
+    /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 5px;
+    /* Space between list items */
+}
+
+.pincodes_list .pins {
+    background-color: #e0e0e0;
+    /* Light gray background */
+    padding: 5px 10px;
+    border-radius: 4px;
+    /* Slightly rounded corners */
+    font-size: 0.875rem;
+    /* 14px */
+    color: #333;
+    /* Darker text color */
+}
+
+.right_Pincode textarea {
+    height: 2.5rem;
+    /* 10 * 0.25rem */
+    width: 50%;
+    border-radius: 0.375rem;
+    /* Rounded corners */
+    border: 1px solid #ccc;
+    /* Light gray border */
+    background-color: #fff;
+    /* White background */
+    padding: 0.5rem 0.75rem;
+    /* 8px top/bottom, 12px left/right */
+    font-size: 0.875rem;
+    /* 14px */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.right_Pincode textarea::placeholder {
+    color: #6c757d;
+    /* Placeholder text color */
+}
+
+.right_Pincode textarea:focus-visible {
+    outline: none;
+    border-color: #007bff;
+    /* Blue border on focus */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    /* Blue shadow on focus */
+}
+
+.right_Pincode textarea:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.pincode_notes {
+    color: gray;
+    font-size: .9rem;
+}
+
+.horline {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.222);
+}
+
+.ad_body_3 {
+    width: 100%;
+    height: 100%;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 3rem;
+    box-sizing: border-box;
+    margin-bottom: 3rem;
+}
+
+.ad_body_3 h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.ad_feedbacks {
+    border: 1px solid rgba(0, 0, 0, 0.299);
+    padding: 5px 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    box-sizing: border-box;
+}
+
+.ad_feedbacks h4 {
+    color: rgba(0, 0, 0, 0.819);
+}
+
+.ad_edit_btn {
+    width: 100%;
+    height: 100%;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 3rem;
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+}
+
+
+
+.ad_edit_btn button {
+    align-self: flex-end;
+    height: 2.5rem;
+    width: 10.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+    border: 1px solid black;
+    background-color: #3d5a80;
+    color: white;
+}
+
+
+.hidden {
+    display: none;
+}

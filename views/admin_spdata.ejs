@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VESP</title>
+    <link rel="stylesheet" href="/styles/ve.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="ad_main">
+
+        <div class="ad_backpointer">
+            <a href="/admin">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+
+        <!-- title and CSV download button -->
+        <div class="ad_block1">
+            <h2 class="ad_title">View / Edit Service Provider profile</h3>
+                <form action="/admin/spdata/download" method="get"></form>
+                <button>
+                    <i class="fas fa-download pr-4"></i>
+                    Download CSV
+                </button>
+        </div>
+
+        <!-- search bar -->
+        <form action="/admin/spdata/search" method="post">
+
+            <div class="ad_searchbar">
+                <input type="text" placeholder="Search by Service Provider ID" name="spid">
+                <button type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+        </form>
+
+            <% if((locals.db && locals.db.length> 0)){ %>
+                <!-- content body -->
+                <form class="dataviewform" action="/admin/spdata/update" method="post" enctype="multipart/form-data">
+
+
+                    <div class="ad_body">
+
+                        <!-- profile image(left), name email and phone number(right) -->
+                        <div class="ad_body_1">
+
+                            <div class="body_1_left">
+                                <img src="<%= locals.db[0].avatar %>" alt="">
+                                <input type="file" name="avatar" id="file" class="file-input hidden"
+                                    placeholder="choose file">
+                            </div>
+
+                            <div class="body_1_right">
+
+                                <!-- sp id -->
+                                <div class="right_id items">
+                                    <h3>Service Provider ID:</h3>
+                                    <p>
+                                        <%= locals.db[0].spid %>
+                                    </p>
+                                    <input type="text" name="spid" value="<%= locals.db[0].spid %>" hidden>
+                                </div>
+
+                                <!-- sp name -->
+                                <div class="right_name items">
+                                    <h3>Name: </h3>
+                                    <p>
+                                        <%= locals.db[0].providername %>
+                                    </p>
+                                </div>
+
+                                <!-- sp phone number -->
+                                <div class="right_phone items hide_element">
+                                    <h3>Phone Number: </h3>
+                                    <p>
+                                        <%= locals.db[0].phoneno %>
+                                    </p>
+                                    <input class="hidden" type="text" name="phoneno"
+                                        value="<%= locals.db[0].phoneno %>">
+                                </div>
+
+                                <!-- sp email -->
+                                <div class="right_email items hide_element">
+                                    <h3>Email: </h3>
+                                    <p>
+                                        <%= locals.db[0].email %>
+                                    </p>
+                                    <input class="hidden" type="email" name="email" value="<%= locals.db[0].email %>">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- profile details -->
+                        <div class="ad_body_2">
+
+                            <!-- sp Rating -->
+                            <div class="right_rating items">
+                                <h3>Rating: </h3>
+                                <p>
+                                    <%= locals.db[0].rating %>
+                                </p>
+                            </div>
+
+                            <!-- sp adhaar number -->
+                            <div class="right_adhaar items">
+                                <h3>Adhaar Number: </h3>
+                                <p>
+                                    <%= locals.db[0].adharno %>
+                                </p>
+                            </div>
+
+                            <!-- sp birthday -->
+                            <div class="right_birthday items">
+                                <h3>Birthday: </h3>
+                                <p>
+                                    <%= locals.db[0].day %>-<%= locals.db[0].month %>-<%= locals.db[0].year %>
+                                </p>
+                            </div>
+
+                            <!-- sp Password -->
+                            <div class="right_Password items hide_element">
+                                <h3>Password: </h3>
+                                <p>
+                                    <%= locals.db[0].password %>
+                                </p>
+                                <input class="hidden" name="password" type="password" value="">
+                            </div>
+
+                            <!-- sp City -->
+                            <div class="right_City items hide_element">
+                                <h3>City: </h3>
+                                <p>
+                                    <%= locals.db[0].city %>
+                                </p>
+                                <input class="hidden" type="text" name="city" value="<%= locals.db[0].city %>">
+                                <p class="pincode_notes hidden">Here enter City name in small letters</p>
+                                <!-- //here city name should be small letter -->
+
+                            </div>
+
+
+                            <!-- sp Pincodes -->
+                            <div class="right_Pincode items hide_element">
+                                <h3>Pincodes: </h3>
+                                <ul class="pincodes_list">
+                                    <% locals.db[0].pincodes.forEach(function(pincode) { %>
+                                        <li class="pins">
+                                            <%= pincode %>
+                                        </li>
+                                        <% }) %>
+                                </ul>
+                                <textarea class="hidden"
+                                    name="pincodes"><%= locals.db[0].pincodes.join(', ') %></textarea>
+                                <p class="pincode_notes hidden">Here enter Pincodes with (comma-separated)</p>
+                            </div>
+
+
+
+                            <!-- sp Charges -->
+                            <div class="right_Charges items hide_element">
+                                <h3>Charges: </h3>
+                                <p>
+                                    <%= locals.db[0].charges %>
+                                </p>
+                                <input class="hidden" type="number" name="charges" value="<%= locals.db[0].charges %>">
+                            </div>
+
+                            <!-- sp Availability -->
+                            <div class="right_availablity items">
+                                <h3>Availability: </h3>
+                                <p>
+                                    <%= locals.db[0].availability %>
+                                </p>
+                                <div class="ratio_availablity hidden">
+                                    Yes <input type="radio" name="availability" value="true"
+                                        <%=locals.db[0].availability==="true" ? 'checked' : '' %>>
+                                    No <input type="radio" name="availability" value="false"
+                                        <%=locals.db[0].availability==="false" ? 'checked' : '' %>>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="horline"></div>
+
+                        <!-- customer feedback for the sp -->
+                        <div class="ad_body_3">
+
+                            <h3>Customer Feedback</h3>
+
+                            
+                            <% if(locals.db[0].reviewers[0] == null){ %>
+                                <div class="ad_feedbacks">
+                                    <h3>No Reviews from customer</h3>
+                                </div>
+                            <% } else { %>
+                                <% for(var i=0; i< (locals.db[0].reviewers.length); i++){ %>
+                            
+                                    <div class="ad_feedbacks">
+                            
+                                        <div class="feedback_name items">
+                                            <h4>Customer name: </h4>
+                                            <p class="customer_username"><%= locals.db[0].reviewers[i].username %></p>
+                                        </div>
+                            
+                                        <div class="feedback_rating items">
+                                            <h4>Rating: </h4>
+                                            <p class="customer_rating"><%= locals.db[0].reviewers[i].rating %></p>
+                                        </div>
+                            
+                                        <div class="feedback_review items">
+                                            <h4>Review: </h4>
+                                            <p class="customer_review"><%= locals.db[0].reviewers[i].message %></p>
+                                        </div>
+                            
+                                    </div>
+                                    <% } %>
+                                <% } %>
+
+                        </div>
+
+                        <div class="horline"></div>
+
+                        <div class="ad_edit_btn">
+                            <button id="editProfileBtn" class="button" type="button">
+                                <i class="fas fa-edit"></i>
+                                Edit Profile
+                            </button>
+
+                            <button id="subProfileBtn" class="button hidden" type="submit">
+                                <i class="fas fa-check"></i>
+                                Submit
+                            </button>
+
+                        </div>
+
+                    </div>
+                </form>
+                <% }else{ %>
+                    <% if(locals.message) {%>
+                    <h2>No such service provider found</h2>
+
+                    <% } %>
+                    <% } %>
+    </div>
+
+    <script>
+        // JavaScript to toggle visibility of <p> and <input> elements when "Edit Profile" button is clicked
+        document.getElementById("editProfileBtn").addEventListener("click", function () {
+            // Get all <p> and <input> elements inside the ad_body_2 div
+            var elements = document.querySelectorAll(".hide_element p, .hide_element ul, .hide_element input, .ratio_availablity, .right_Pincode textarea, .pincode_notes, .right_availablity p");
+            var btn = document.querySelectorAll(".button");
+
+            var spimg = document.getElementById("file");
+            spimg.classList.toggle("hidden");
+
+            // Loop through each element and toggle the 'hidden' class
+            elements.forEach(function (element) {
+                element.classList.toggle("hidden");
+            });
+
+            btn.forEach(function (element) {
+                element.classList.toggle("hidden");
+            });
+
+            spimg.addEventListener('change', function () {
+                var file = this.files[0];
+                var reader = new FileReader();
+                reader.onload = function () {
+                    var img = document.querySelector('img');
+                    img.src = reader.result;
+                }
+                reader.readAsDataURL(file);
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
