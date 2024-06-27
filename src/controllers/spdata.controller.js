@@ -68,20 +68,35 @@ const spdataupdate = async (req, res) => {
         // Checking if avatar file is not provided
         if (!req.files || !req.files.avatar || req.files.avatar.length === 0) {
 
-            const respond = await ServiceInfo.findOneAndUpdate({ spid: spid }, {
-                email,
-                phoneno,
-                password,
-                pincodes: pincodesarr,
-                city: city.toLowerCase(),
-                charges,
-                availability,
-            }, { new: true });
-
-            if (!respond) {
-                return res.status(404).json({ error: "No such service provider found" });
+            if(password===""){
+                const respond = await ServiceInfo.findOneAndUpdate({ spid: spid }, {
+                    email,
+                    phoneno,
+                    pincodes: pincodesarr,
+                    city: city.toLowerCase(),
+                    charges,
+                    availability,
+                }, { new: true });
+    
+                if (!respond) {
+                    return res.status(404).json({ error: "No such service provider found" });
+                }
+            }else{
+                const respond = await ServiceInfo.findOneAndUpdate({ spid: spid }, {
+                    email,
+                    phoneno,
+                    password,
+                    pincodes: pincodesarr,
+                    city: city.toLowerCase(),
+                    charges,
+                    availability,
+                }, { new: true });
+    
+                if (!respond) {
+                    return res.status(404).json({ error: "No such service provider found" });
+                }
             }
-
+            
             console.log(respond);
             console.log("Successfully updated the data of the service provider");
 
@@ -98,25 +113,40 @@ const spdataupdate = async (req, res) => {
                 return res.status(400).json({error: "Failed to upload avatar to Cloudinary"});
             }
 
-            const respond = await ServiceInfo.findOneAndUpdate({ spid: spid }, {
-                email,
-                phoneno,
-                password,
-                pincodes: pincodesarr,
-                city: city.toLowerCase(),
-                charges,
-                availability,
-                avatar:avatarUrl.url,
-
-            }, { new: true });
-
-            if (!respond) {
-                return res.status(404).json({ error: "No such service provider found" });
+            if(password===""){
+                const respond = await ServiceInfo.findOneAndUpdate({ spid: spid }, {
+                    email,
+                    phoneno,
+                    pincodes: pincodesarr,
+                    city: city.toLowerCase(),
+                    charges,
+                    availability,
+                    avatar:avatarUrl.url,
+    
+                }, { new: true });
+    
+                if (!respond) {
+                    return res.status(404).json({ error: "No such service provider found" });
+                }
+            }else{
+                const respond = await ServiceInfo.findOneAndUpdate({ spid: spid }, {
+                    email,
+                    phoneno,
+                    password,
+                    pincodes: pincodesarr,
+                    city: city.toLowerCase(),
+                    charges,
+                    availability,
+                    avatar:avatarUrl.url,
+    
+                }, { new: true });
+    
+                if (!respond) {
+                    return res.status(404).json({ error: "No such service provider found" });
+                }
             }
-
             console.log(respond);
             console.log("Successfully updated the data of the service provider");
-
         }
 
 
